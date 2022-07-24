@@ -16,20 +16,28 @@ app.listen(8080, () => {
 });
 
 
-app.get('/business-partner', (req, res) => {
-    var bpJson = {"business_partner": business_partner_list}
-    res.send(bpJson)
+app.get('/', (req, res) => {
+    var htmlString = `
+    <html>
+        <body>
+            <h1>Top Page</h1>
+            <a href="/business-partner-list-page">Business Partnerのリストページに移動</a>
+        </body>
+    </html>
+    `
+    console.log(htmlString)
+    res.send(htmlString)
 });
 
 
-app.get('/business-partner-list-page-v1', (req, res) => {
+app.get('/business-partner-list-page', (req, res) => {
     var htmlString = `
     <html>
         <body>
             <h1>Business Partnerリスト</h1>
             <ul>
-                <li>Blue cheese</li>
-                <li>Feta</li>
+                <li>ハードコードされたビジネスパートナー1</li>
+                <li>ハードコードされたビジネスパートナー2</li>
             </ul>
         </body>
     </html>
